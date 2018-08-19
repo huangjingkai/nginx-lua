@@ -67,7 +67,7 @@ end
 
 local res, err = red:auth(ngx.var.redis_password)
 if not res then
-	ngx.log(ngx.ERR, "[CACHE] auth failed: ", ngx.var.redis_host, ":", ngx.var.redis_port)
+	ngx.log(ngx.ERR, "[X-DCS] auth failed: ", ngx.var.redis_host, ":", ngx.var.redis_port)
 	ngx.header['X-CACHED-STATUS'] = 'DOWN'
 	ngx.header["pragma"]="no-cache"
 	ngx.header["cache-control"]="no-cache, no-store, max-age=0"
